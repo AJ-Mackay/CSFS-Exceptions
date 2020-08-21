@@ -15,22 +15,27 @@ namespace Exceptions
         public void Method2()
         {
             Console.WriteLine("Method 2 begins");
-            try
-            { 
-                Method3();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Caught exception: {0}", e.Message);
-            }
+            Method3();
             Console.WriteLine("Method 2 ends");
         }
 
         public void Method3()
         {
             Console.WriteLine("Method 3 begins");
-            var x = 0;
-            var y = 12 / x;
+            Console.WriteLine("File opened...");
+            try
+            {
+                var x = 0;
+                var y = 12 / x;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Caught exception: {0}", e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("File closed...");
+            }
             Console.WriteLine("Method 3 ends");
         }
     }
